@@ -3,11 +3,13 @@ class TasksController < ApplicationController
     @tasks = Task.all
   end
 
+  def show
+    @tasks = User.find_by({"id" => session["user_id"]})
+  end
+
   def create
-    @task = Task.new
-    @task["description"] = params["description"]
-    @task.save
-    redirect_to "/tasks"
+    
+end
   end
 
   def destroy
